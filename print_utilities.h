@@ -6,6 +6,6 @@
 
 extern void print_message(const char * message);
 extern void print_error_and_exit(const char * message, int status_code);
-extern void print_usage();
+extern void print_usage(char * app_name);
 
 #endif

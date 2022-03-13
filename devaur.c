@@ -113,16 +113,16 @@ void remove_package(const char *package_name)
         print_error_and_exit(REMOVE_ERROR, status_code);
 }
 
-void check_empty_package_name(char *package)
+void check_empty_package_name(char *package, char *app_name)
 {
     if (strcmp(package, "") == 0)
-        print_usage();
+        print_usage(app_name);
 }
 
 void parse_arguments(int argc, char **argv, char **package, modes_t *mode)
 {
     if (argc < 2)
-        print_usage();
+        print_usage(argv[0]);
 
     int opt;
 
@@ -133,12 +133,12 @@ void parse_arguments(int argc, char **argv, char **package, modes_t *mode)
             case 'S':
                 *mode = INSTALL;
                 *package = argv[optind - 1];
-                check_empty_package_name(*package);
+                check_empty_package_name(*package, argv[0]);
                 break;
             case 'R':
                 *mode = REMOVE;
                 *package = argv[optind - 1];
-                check_empty_package_name(*package);
+                check_empty_package_name(*package, argv[0]);
                 break;
             case 'C':
                 *mode = CLEAN_CACHE;
@@ -184,7 +184,7 @@ int main(int argc, char **argv)
     switch (mode)
     {
         case UNDEFINED:
-            print_usage();
+            print_usage(argv[0]);
             break;
         case INSTALL:
             install_package(package);
