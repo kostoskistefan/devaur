@@ -11,8 +11,8 @@ void print_error_and_exit(const char * message, int status_code)
     exit(2);
 }
 
-void print_usage(char * app_name)
+void print_usage()
 {
-    fprintf(stderr, "Usage: %s [-SR] package_name\n", app_name);
+    fprintf(stderr, "Usage: devaur [-SRC] package_name\n");
     exit(EXIT_FAILURE);
 }

@@ -8,5 +8,7 @@
 #define INSTALL_ERROR "There was a problem installing the package"
 #define CLONING_IN_PROGRESS "Cloning repository..."
 #define INSTALLATION_IN_PROGRESS "Installing package..."
+#define CLEAN_CACHE_PROMPT "Are you sure you want to clean the cache? (y/n) "
+#define EXIT_MESSAGE "Exiting..."
 
 #endif
